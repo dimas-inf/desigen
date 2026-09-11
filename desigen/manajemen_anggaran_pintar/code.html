@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Monthly Budget - NEO_SPEND</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-primary-container": "#004965",
+                        "on-secondary-fixed": "#002113",
+                        "on-tertiary-fixed-variant": "#92002a",
+                        "tertiary-fixed": "#ffdadb",
+                        "primary-fixed-dim": "#7bd0ff",
+                        "inverse-on-surface": "#2c3135",
+                        "secondary-container": "#00a572",
+                        "surface-dim": "#0f1418",
+                        "on-tertiary-fixed": "#40000d",
+                        "surface": "#0f1418",
+                        "surface-container": "#1b2024",
+                        "tertiary-container": "#ff929a",
+                        "error": "#ffb4ab",
+                        "secondary-fixed-dim": "#4edea3",
+                        "on-secondary-fixed-variant": "#005236",
+                        "secondary-fixed": "#6ffbbe",
+                        "on-surface-variant": "#bdc8d1",
+                        "on-error": "#690005",
+                        "background": "#0f1418",
+                        "surface-tint": "#7bd0ff",
+                        "on-primary-fixed-variant": "#004c69",
+                        "on-tertiary": "#67001b",
+                        "on-primary-fixed": "#001e2c",
+                        "on-tertiary-container": "#8c0028",
+                        "outline-variant": "#3e484f",
+                        "tertiary": "#ffbcbf",
+                        "primary-container": "#38bdf8",
+                        "on-background": "#dee3e8",
+                        "surface-container-high": "#252b2e",
+                        "error-container": "#93000a",
+                        "surface-container-highest": "#303539",
+                        "surface-container-lowest": "#0a0f12",
+                        "surface-variant": "#303539",
+                        "on-primary": "#00354a",
+                        "surface-container-low": "#171c20",
+                        "on-secondary-container": "#00311f",
+                        "secondary": "#4edea3",
+                        "outline": "#87929a",
+                        "surface-bright": "#343a3e",
+                        "on-error-container": "#ffdad6",
+                        "inverse-primary": "#00668a",
+                        "on-surface": "#dee3e8",
+                        "inverse-surface": "#dee3e8",
+                        "primary-fixed": "#c4e7ff",
+                        "on-secondary": "#003824",
+                        "tertiary-fixed-dim": "#ffb2b7",
+                        "primary": "#8ed5ff"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    spacing: {
+                        "md": "1rem",
+                        "sm": "0.5rem",
+                        "gutter": "1rem",
+                        "xl": "2rem",
+                        "margin-desktop": "2.5rem",
+                        "margin-mobile": "1.25rem",
+                        "lg": "1.5rem",
+                        "2xl": "3rem",
+                        "xs": "0.25rem"
+                    },
+                    fontFamily: {
+                        "label-sm": ["Outfit"],
+                        "headline-lg": ["Outfit"],
+                        "headline-xl": ["Outfit"],
+                        "body-lg": ["Outfit"],
+                        "body-md": ["Outfit"],
+                        "headline-md": ["Outfit"],
+                        "label-md": ["Outfit"],
+                        "headline-lg-mobile": ["Outfit"]
+                    },
+                    fontSize: {
+                        "label-sm": ["12px", { lineHeight: "16px", letterSpacing: "0.05em", fontWeight: "600" }],
+                        "headline-lg": ["32px", { lineHeight: "40px", letterSpacing: "-0.01em", fontWeight: "600" }],
+                        "headline-xl": ["40px", { lineHeight: "48px", letterSpacing: "-0.02em", fontWeight: "700" }],
+                        "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
+                        "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+                        "headline-md": ["24px", { lineHeight: "32px", fontWeight: "600" }],
+                        "label-md": ["14px", { lineHeight: "20px", letterSpacing: "0.01em", fontWeight: "500" }],
+                        "headline-lg-mobile": ["28px", { lineHeight: "36px", fontWeight: "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Custom Neon Glow Utilities */
+        .neon-glow-primary {
+            box-shadow: 0 0 12px rgba(142, 213, 255, 0.4);
+        }
+        .neon-glow-secondary {
+            box-shadow: 0 0 12px rgba(78, 222, 163, 0.4);
+        }
+        .neon-glow-tertiary {
+            box-shadow: 0 0 12px rgba(255, 146, 154, 0.4);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface antialiased min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-40 bg-surface/80 dark:bg-surface/80 backdrop-blur-xl border-b border-white/10 shadow-sm flex justify-between items-center px-margin-mobile md:px-margin-desktop h-16">
+<!-- Leading Avatar -->
+<div class="flex-shrink-0 relative">
+<div class="w-10 h-10 rounded-full border border-primary/50 overflow-hidden neon-glow-primary">
+<img alt="User Avatar" class="w-full h-full object-cover" data-alt="A close up portrait of a futuristic cyberpunk character illuminated by harsh blue and pink neon lights. The character has glowing cybernetic implants. The background is pure black to isolate the subject. High contrast, sharp focus, 8k resolution, cinematic lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1UBdliHEVKOIMupQOOIw6yzB0nNrXvG6KEfIRaM0afBFTdpiqHBVNJiTwoWlmezruQw-eLnsguZ0YfLviUQf0ly6PSZDdNqOf59CyNuGZYx-ZYsBkyuvGL5n3tsXYY0zVkHRBR5_4PIYirC7FKckQ2ItDjNIKzk-rL0Ag1DREWu5Fd0YJ7vN9EaO28lSDo8C_Gol-eheuf2LmdU489uiXT_0Wf8LT805LXIm_ZT35R0aRcAD9V3_Qos4kJRzc9stD4joSjoCCfKvs"/>
+</div>
+</div>
+<!-- Desktop Navigation Cluster (Hidden on mobile) -->
+<nav class="hidden md:flex flex-1 justify-center items-center gap-8">
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary hover:bg-white/5 transition-colors px-3 py-2 rounded-lg" href="#">Home</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary hover:bg-white/5 transition-colors px-3 py-2 rounded-lg" href="#">Insights</a>
+<a class="font-label-md text-label-md text-primary neon-glow-primary bg-primary/10 rounded-lg px-3 py-2 flex flex-col items-center" href="#">Budget</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary hover:bg-white/5 transition-colors px-3 py-2 rounded-lg" href="#">Vault</a>
+</nav>
+<!-- Brand Name (Mobile Center, Desktop hidden or right-aligned relative to nav, but lets keep it centered absolute for clean look) -->
+<div class="absolute left-1/2 transform -translate-x-1/2 md:hidden">
+<span class="font-headline-md text-headline-md font-black tracking-tighter text-primary dark:text-primary">NEO_SPEND</span>
+</div>
+<!-- Trailing Icon -->
+<div class="flex-shrink-0 flex items-center justify-end md:w-auto">
+<button class="p-2 text-primary dark:text-primary hover:bg-white/5 transition-colors rounded-full relative group">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-tertiary rounded-full neon-glow-tertiary"></span>
+</button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 w-full pt-24 pb-24 md:pb-12 px-margin-mobile md:px-margin-desktop container mx-auto flex flex-col gap-xl">
+<!-- Alert Banner -->
+<div class="bg-surface-container/60 backdrop-blur-xl border border-tertiary-container/30 rounded-xl p-md flex items-center gap-md shadow-sm">
+<div class="w-10 h-10 rounded-full bg-tertiary-container/20 flex items-center justify-center text-tertiary-fixed">
+<span class="material-symbols-outlined" data-icon="warning">warning</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-tertiary-fixed">Groceries nearing limit</p>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm mt-1">You have spent 85% of your $800 grocery budget.</p>
+</div>
+</div>
+<!-- Top Row: Remaining to Spend Card -->
+<section class="grid grid-cols-4 md:grid-cols-12 gap-gutter">
+<div class="col-span-4 md:col-span-12 lg:col-span-8 lg:col-start-3 bg-surface-container/60 backdrop-blur-2xl border border-white/10 rounded-[24px] p-xl flex flex-col items-center justify-center relative overflow-hidden group">
+<!-- Ambient Background Glow -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-primary/10 blur-[80px] rounded-full pointer-events-none transition-opacity duration-500 opacity-50 group-hover:opacity-80"></div>
+<div class="text-center mb-lg relative z-10">
+<h2 class="font-headline-md text-headline-md text-on-surface">Remaining to Spend</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2">Cycle ends in 12 days</p>
+</div>
+<!-- Circular Gauge -->
+<div class="relative w-64 h-64 flex items-center justify-center z-10">
+<svg class="w-full h-full transform -rotate-90" viewbox="0 0 100 100">
+<!-- Background Track -->
+<circle class="stroke-surface-container-high" cx="50" cy="50" fill="none" r="45" stroke-linecap="round" stroke-width="8"></circle>
+<!-- Progress Track (e.g., 60% remaining -> 40% spent, but lets show remaining. Let's say 40% remaining) -->
+<circle class="stroke-primary drop-shadow-[0_0_8px_rgba(142,213,255,0.6)] transition-all duration-1000 ease-out" cx="50" cy="50" fill="none" r="45" stroke-dasharray="283" stroke-dashoffset="113" stroke-linecap="round" stroke-width="8"></circle>
+</svg>
+<!-- Center Values -->
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="font-headline-xl text-headline-xl text-on-surface drop-shadow-md">$2,450</span>
+<span class="font-label-md text-label-md text-primary mt-1">of $5,000</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Bottom Row: Category Limits Bento Grid -->
+<section class="grid grid-cols-4 md:grid-cols-12 gap-gutter">
+<div class="col-span-4 md:col-span-12 flex flex-col gap-md">
+<h3 class="font-headline-md text-headline-md text-on-surface px-sm">Category Limits</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- Category Card 1 (Warning) -->
+<div class="bg-surface-container/40 backdrop-blur-xl border border-white/5 rounded-xl p-md flex flex-col gap-sm hover:bg-surface-container/60 transition-colors">
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-sm">
+<div class="w-8 h-8 rounded-lg bg-surface-bright flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined text-sm" data-icon="shopping_cart">shopping_cart</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface">Groceries</span>
+</div>
+<span class="font-label-md text-label-md text-tertiary-fixed">$680 / $800</span>
+</div>
+<!-- Progress Bar -->
+<div class="w-full h-2 bg-surface-container-high rounded-full overflow-hidden mt-2">
+<div class="h-full bg-tertiary-fixed rounded-full neon-glow-tertiary" style="width: 85%;"></div>
+</div>
+</div>
+<!-- Category Card 2 (Good) -->
+<div class="bg-surface-container/40 backdrop-blur-xl border border-white/5 rounded-xl p-md flex flex-col gap-sm hover:bg-surface-container/60 transition-colors">
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-sm">
+<div class="w-8 h-8 rounded-lg bg-surface-bright flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined text-sm" data-icon="home">home</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface">Housing</span>
+</div>
+<span class="font-label-md text-label-md text-secondary">$1,800 / $2,000</span>
+</div>
+<!-- Progress Bar -->
+<div class="w-full h-2 bg-surface-container-high rounded-full overflow-hidden mt-2">
+<div class="h-full bg-secondary rounded-full neon-glow-secondary" style="width: 90%;"></div>
+</div>
+</div>
+<!-- Category Card 3 (Excellent) -->
+<div class="bg-surface-container/40 backdrop-blur-xl border border-white/5 rounded-xl p-md flex flex-col gap-sm hover:bg-surface-container/60 transition-colors">
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-sm">
+<div class="w-8 h-8 rounded-lg bg-surface-bright flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined text-sm" data-icon="directions_car">directions_car</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface">Transport</span>
+</div>
+<span class="font-label-md text-label-md text-primary">$150 / $400</span>
+</div>
+<!-- Progress Bar -->
+<div class="w-full h-2 bg-surface-container-high rounded-full overflow-hidden mt-2">
+<div class="h-full bg-primary rounded-full neon-glow-primary" style="width: 37%;"></div>
+</div>
+</div>
+<!-- Category Card 4 (Excellent) -->
+<div class="bg-surface-container/40 backdrop-blur-xl border border-white/5 rounded-xl p-md flex flex-col gap-sm hover:bg-surface-container/60 transition-colors">
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-sm">
+<div class="w-8 h-8 rounded-lg bg-surface-bright flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined text-sm" data-icon="movie">movie</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface">Entertainment</span>
+</div>
+<span class="font-label-md text-label-md text-primary">$80 / $300</span>
+</div>
+<!-- Progress Bar -->
+<div class="w-full h-2 bg-surface-container-high rounded-full overflow-hidden mt-2">
+<div class="h-full bg-primary rounded-full neon-glow-primary" style="width: 26%;"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-3 bg-surface-container/90 dark:bg-surface-container/90 backdrop-blur-2xl rounded-t-xl border-t border-white/10 shadow-[0_-4px_20px_rgba(0,0,0,0.5)]">
+<!-- Home (Inactive) -->
+<a class="flex flex-col items-center justify-center text-outline dark:text-outline opacity-60 hover:text-primary transition-all group" href="#">
+<span class="material-symbols-outlined mb-1 group-active:scale-90 duration-200" data-icon="grid_view">grid_view</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</a>
+<!-- Insights (Inactive) -->
+<a class="flex flex-col items-center justify-center text-outline dark:text-outline opacity-60 hover:text-primary transition-all group" href="#">
+<span class="material-symbols-outlined mb-1 group-active:scale-90 duration-200" data-icon="insights">insights</span>
+<span class="font-label-sm text-label-sm">Insights</span>
+</a>
+<!-- Budget (Active) -->
+<a class="flex flex-col items-center justify-center text-primary dark:text-primary shadow-[0_0_12px_rgba(142,213,255,0.3)] bg-primary/10 rounded-xl px-3 py-1 scale-90 duration-200" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="account_balance_wallet" style="font-variation-settings: 'FILL' 1;">account_balance_wallet</span>
+<span class="font-label-sm text-label-sm">Budget</span>
+</a>
+<!-- Vault (Inactive) -->
+<a class="flex flex-col items-center justify-center text-outline dark:text-outline opacity-60 hover:text-primary transition-all group" href="#">
+<span class="material-symbols-outlined mb-1 group-active:scale-90 duration-200" data-icon="security">security</span>
+<span class="font-label-sm text-label-sm">Vault</span>
+</a>
+</nav>
+</body></html>

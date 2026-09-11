@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Analytics &amp; Reports - Celestial Wealth</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Montserrat:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-tertiary": "#3c0091",
+                      "secondary-container": "#03b5d3",
+                      "surface-variant": "#2d3449",
+                      "on-tertiary-container": "#340080",
+                      "tertiary": "#d0bcff",
+                      "on-surface": "#dae2fd",
+                      "secondary-fixed": "#acedff",
+                      "surface-container": "#171f33",
+                      "background": "#0b1326",
+                      "on-tertiary-fixed": "#23005c",
+                      "on-error": "#690005",
+                      "on-background": "#dae2fd",
+                      "on-primary-fixed": "#001a42",
+                      "tertiary-fixed": "#e9ddff",
+                      "surface-container-high": "#222a3d",
+                      "primary-fixed": "#d8e2ff",
+                      "inverse-on-surface": "#283044",
+                      "primary-container": "#4d8eff",
+                      "primary-fixed-dim": "#adc6ff",
+                      "error-container": "#93000a",
+                      "on-primary": "#002e6a",
+                      "outline-variant": "#424754",
+                      "surface": "#0b1326",
+                      "outline": "#8c909f",
+                      "surface-bright": "#31394d",
+                      "primary": "#adc6ff",
+                      "on-error-container": "#ffdad6",
+                      "surface-tint": "#adc6ff",
+                      "on-surface-variant": "#c2c6d6",
+                      "surface-container-highest": "#2d3449",
+                      "on-tertiary-fixed-variant": "#5516be",
+                      "inverse-primary": "#005ac2",
+                      "error": "#ffb4ab",
+                      "secondary": "#4cd7f6",
+                      "surface-container-lowest": "#060e20",
+                      "tertiary-fixed-dim": "#d0bcff",
+                      "on-secondary-container": "#00424e",
+                      "on-secondary": "#003640",
+                      "tertiary-container": "#a078ff",
+                      "on-primary-fixed-variant": "#004395",
+                      "on-primary-container": "#00285d",
+                      "inverse-surface": "#dae2fd",
+                      "on-secondary-fixed": "#001f26",
+                      "secondary-fixed-dim": "#4cd7f6",
+                      "surface-container-low": "#131b2e",
+                      "surface-dim": "#0b1326",
+                      "on-secondary-fixed-variant": "#004e5c"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "xs": "4px",
+                      "xl": "40px",
+                      "gutter": "16px",
+                      "sm": "8px",
+                      "unit": "4px",
+                      "lg": "24px",
+                      "margin-desktop": "64px",
+                      "margin-mobile": "20px",
+                      "md": "16px"
+              },
+              "fontFamily": {
+                      "headline-md": [
+                              "Montserrat"
+                      ],
+                      "headline-lg": [
+                              "Montserrat"
+                      ],
+                      "headline-lg-mobile": [
+                              "Montserrat"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "display-lg": [
+                              "Montserrat"
+                      ],
+                      "label-sm": [
+                              "Inter"
+                      ],
+                      "label-lg": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "letterSpacing": "0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "28px",
+                              {
+                                      "lineHeight": "36px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "letterSpacing": "0.01em",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "letterSpacing": "0.01em",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "letterSpacing": "0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "label-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.03em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "label-lg": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "600"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+        /* Custom styles for specific glassmorphism effects not easily achievable with basic Tailwind classes */
+        .glass-card-base {
+            background: rgba(30, 41, 59, 0.5);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            border-left: 1px solid rgba(255, 255, 255, 0.05);
+            border-right: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.02);
+        }
+        
+        .glow-chart-bar {
+            box-shadow: 0 0 15px rgba(77, 142, 255, 0.5);
+        }
+        
+        .donut-glow {
+            filter: drop-shadow(0 0 10px rgba(76, 215, 246, 0.4));
+        }
+        
+        /* Simulating SVG donut chart purely with CSS gradients for the specific visual requirement */
+        .css-donut {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            background: conic-gradient(
+                #4cd7f6 0% 45%, /* Secondary - Food */
+                #4d8eff 45% 75%, /* Primary Container - Housing */
+                #a078ff 75% 90%, /* Tertiary Container - Transport */
+                #2d3449 90% 100% /* Surface Variant - Other */
+            );
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            filter: drop-shadow(0 0 15px rgba(76, 215, 246, 0.3));
+        }
+        .css-donut::before {
+            content: "";
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: #0b1326; /* Match surface */
+        }
+        
+        /* Hide scrollbar for clean horizontal scrolling */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface min-h-screen pb-24 md:pb-0 font-body-md overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-xl border-b border-outline-variant/20 shadow-lg shadow-primary/5">
+<div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop h-16">
+<div class="flex items-center gap-sm">
+<!-- Leading Avatar Placeholder (using icon since image gen is tricky for precise avatars) -->
+<button class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center border border-outline-variant/30 hover:bg-white/5 transition-colors active:scale-95 duration-200">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">account_circle</span>
+</button>
+</div>
+<h1 class="font-headline-lg text-headline-lg font-bold text-primary tracking-tighter">CELESTIAL</h1>
+<div class="flex items-center">
+<button class="w-10 h-10 flex items-center justify-center text-on-surface-variant hover:bg-white/5 transition-colors active:scale-95 duration-200 rounded-full">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="pt-24 px-margin-mobile md:px-margin-desktop max-w-7xl mx-auto space-y-xl">
+<!-- Header Section -->
+<section class="flex flex-col md:flex-row justify-between items-start md:items-end gap-md">
+<div>
+<h2 class="font-display-lg text-display-lg text-on-surface">Analytics</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-unit">Deep dive into your financial cosmos.</p>
+</div>
+<!-- Date Filter Dropdown (Mockup) -->
+<button class="glass-card-base rounded-lg px-md py-sm flex items-center gap-sm text-secondary-fixed hover:bg-white/5 transition-colors">
+<span class="font-label-lg text-label-lg">This Month</span>
+<span class="material-symbols-outlined text-sm">keyboard_arrow_down</span>
+</button>
+</section>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-lg auto-rows-min">
+<!-- Category Breakdown (Donut) - Takes up left side on desktop -->
+<div class="md:col-span-5 glass-card-base rounded-xl p-lg flex flex-col items-center justify-center min-h-[360px] relative group overflow-hidden">
+<div class="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+<h3 class="font-headline-md text-headline-md w-full text-left mb-lg relative z-10 text-on-surface">Top Categories</h3>
+<div class="relative flex items-center justify-center w-full flex-grow z-10">
+<div class="css-donut">
+<!-- Center text for Donut -->
+<div class="absolute inset-0 flex flex-col items-center justify-center z-10">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Top Spend</span>
+<span class="font-headline-md text-headline-md text-secondary mt-[-4px]">Food</span>
+</div>
+</div>
+</div>
+<!-- Legend -->
+<div class="w-full mt-lg grid grid-cols-2 gap-sm z-10">
+<div class="flex items-center gap-sm">
+<div class="w-3 h-3 rounded-full bg-secondary"></div>
+<span class="font-label-sm text-label-sm text-on-surface">Food (45%)</span>
+</div>
+<div class="flex items-center gap-sm">
+<div class="w-3 h-3 rounded-full bg-primary-container"></div>
+<span class="font-label-sm text-label-sm text-on-surface">Housing (30%)</span>
+</div>
+<div class="flex items-center gap-sm">
+<div class="w-3 h-3 rounded-full bg-tertiary-container"></div>
+<span class="font-label-sm text-label-sm text-on-surface">Transport (15%)</span>
+</div>
+<div class="flex items-center gap-sm">
+<div class="w-3 h-3 rounded-full bg-surface-variant"></div>
+<span class="font-label-sm text-label-sm text-on-surface">Other (10%)</span>
+</div>
+</div>
+</div>
+<!-- Spending Trend (Bar Chart) - Takes up right side on desktop -->
+<div class="md:col-span-7 glass-card-base rounded-xl p-lg flex flex-col min-h-[360px] relative group overflow-hidden">
+<div class="absolute top-0 right-0 w-full h-full bg-gradient-to-bl from-primary-container/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+<div class="flex justify-between items-center mb-lg relative z-10">
+<h3 class="font-headline-md text-headline-md text-on-surface">Spending Trend</h3>
+<div class="font-label-lg text-label-lg text-primary-fixed-dim bg-primary/10 px-sm py-unit rounded-md">
+                        +$420 vs Last Wk
+                    </div>
+</div>
+<!-- Mock Bar Chart -->
+<div class="flex-grow flex items-end justify-between gap-xs sm:gap-sm mt-md relative z-10 h-full border-b border-outline-variant/30 pb-sm">
+<!-- Y-Axis Lines (Decorative) -->
+<div class="absolute left-0 w-full h-[25%] border-t border-outline-variant/10 z-0"></div>
+<div class="absolute left-0 w-full h-[50%] border-t border-outline-variant/10 z-0"></div>
+<div class="absolute left-0 w-full h-[75%] border-t border-outline-variant/10 z-0"></div>
+<!-- Bars -->
+<div class="flex flex-col items-center gap-unit w-full z-10 group/bar">
+<div class="w-full max-w-[40px] h-[30%] bg-surface-bright rounded-t-sm hover:bg-primary/40 transition-colors cursor-pointer relative">
+<!-- Tooltip mock -->
+<div class="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-surface-container-high px-sm py-unit rounded shadow-lg opacity-0 group-hover/bar:opacity-100 transition-opacity font-label-sm text-label-sm pointer-events-none border border-outline-variant/30">$120</div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Mon</span>
+</div>
+<div class="flex flex-col items-center gap-unit w-full z-10 group/bar">
+<div class="w-full max-w-[40px] h-[45%] bg-surface-bright rounded-t-sm hover:bg-primary/40 transition-colors cursor-pointer relative">
+<div class="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-surface-container-high px-sm py-unit rounded shadow-lg opacity-0 group-hover/bar:opacity-100 transition-opacity font-label-sm text-label-sm pointer-events-none border border-outline-variant/30">$180</div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Tue</span>
+</div>
+<div class="flex flex-col items-center gap-unit w-full z-10 group/bar">
+<!-- Highest Bar - Glowing -->
+<div class="w-full max-w-[40px] h-[85%] bg-primary-container rounded-t-sm glow-chart-bar hover:bg-primary transition-colors cursor-pointer relative">
+<div class="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-primary-container text-on-primary-container px-sm py-unit rounded shadow-lg opacity-0 group-hover/bar:opacity-100 transition-opacity font-label-sm text-label-sm pointer-events-none">$340</div>
+</div>
+<span class="font-label-sm text-label-sm text-primary-fixed">Wed</span>
+</div>
+<div class="flex flex-col items-center gap-unit w-full z-10 group/bar">
+<div class="w-full max-w-[40px] h-[20%] bg-surface-bright rounded-t-sm hover:bg-primary/40 transition-colors cursor-pointer relative">
+<div class="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-surface-container-high px-sm py-unit rounded shadow-lg opacity-0 group-hover/bar:opacity-100 transition-opacity font-label-sm text-label-sm pointer-events-none border border-outline-variant/30">$80</div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Thu</span>
+</div>
+<div class="flex flex-col items-center gap-unit w-full z-10 group/bar">
+<div class="w-full max-w-[40px] h-[60%] bg-surface-bright rounded-t-sm hover:bg-primary/40 transition-colors cursor-pointer relative">
+<div class="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-surface-container-high px-sm py-unit rounded shadow-lg opacity-0 group-hover/bar:opacity-100 transition-opacity font-label-sm text-label-sm pointer-events-none border border-outline-variant/30">$240</div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Fri</span>
+</div>
+<div class="flex flex-col items-center gap-unit w-full z-10 group/bar">
+<div class="w-full max-w-[40px] h-[40%] bg-surface-bright rounded-t-sm hover:bg-primary/40 transition-colors cursor-pointer relative">
+<div class="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-surface-container-high px-sm py-unit rounded shadow-lg opacity-0 group-hover/bar:opacity-100 transition-opacity font-label-sm text-label-sm pointer-events-none border border-outline-variant/30">$160</div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Sat</span>
+</div>
+<div class="flex flex-col items-center gap-unit w-full z-10 group/bar">
+<div class="w-full max-w-[40px] h-[35%] bg-surface-bright rounded-t-sm hover:bg-primary/40 transition-colors cursor-pointer relative">
+<div class="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-surface-container-high px-sm py-unit rounded shadow-lg opacity-0 group-hover/bar:opacity-100 transition-opacity font-label-sm text-label-sm pointer-events-none border border-outline-variant/30">$140</div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Sun</span>
+</div>
+</div>
+</div>
+<!-- Detailed Category List - Spans full width -->
+<div class="md:col-span-12 glass-card-base rounded-xl p-lg">
+<div class="flex justify-between items-center mb-md">
+<h3 class="font-headline-md text-headline-md text-on-surface">Detailed Breakdown</h3>
+<button class="font-label-lg text-label-lg text-secondary-fixed hover:text-secondary transition-colors">View All</button>
+</div>
+<div class="flex flex-col gap-sm">
+<!-- List Item 1: Food -->
+<div class="flex items-center justify-between p-md rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors border border-transparent hover:border-outline-variant/30 group">
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 rounded-lg bg-secondary/20 flex items-center justify-center border border-secondary/30 group-hover:shadow-[0_0_10px_rgba(76,215,246,0.3)] transition-shadow">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">restaurant</span>
+</div>
+<div>
+<h4 class="font-body-lg text-body-lg text-on-surface font-semibold">Dining &amp; Groceries</h4>
+<p class="font-label-sm text-label-sm text-on-surface-variant">24 Transactions</p>
+</div>
+</div>
+<div class="text-right">
+<p class="font-headline-md text-headline-md text-secondary-fixed">-$845.20</p>
+<p class="font-label-sm text-label-sm text-error flex items-center justify-end gap-xs">
+<span class="material-symbols-outlined text-[14px]">trending_up</span> 12%
+                            </p>
+</div>
+</div>
+<!-- List Item 2: Housing -->
+<div class="flex items-center justify-between p-md rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors border border-transparent hover:border-outline-variant/30 group">
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 rounded-lg bg-primary-container/20 flex items-center justify-center border border-primary-container/30 group-hover:shadow-[0_0_10px_rgba(77,142,255,0.3)] transition-shadow">
+<span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'FILL' 1;">home</span>
+</div>
+<div>
+<h4 class="font-body-lg text-body-lg text-on-surface font-semibold">Housing &amp; Utilities</h4>
+<p class="font-label-sm text-label-sm text-on-surface-variant">3 Transactions</p>
+</div>
+</div>
+<div class="text-right">
+<p class="font-headline-md text-headline-md text-on-surface">-$2,100.00</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant flex items-center justify-end gap-xs">
+<span class="material-symbols-outlined text-[14px]">horizontal_rule</span> 0%
+                            </p>
+</div>
+</div>
+<!-- List Item 3: Transport -->
+<div class="flex items-center justify-between p-md rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors border border-transparent hover:border-outline-variant/30 group">
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 rounded-lg bg-tertiary-container/20 flex items-center justify-center border border-tertiary-container/30 group-hover:shadow-[0_0_10px_rgba(160,120,255,0.3)] transition-shadow">
+<span class="material-symbols-outlined text-tertiary-container" style="font-variation-settings: 'FILL' 1;">directions_car</span>
+</div>
+<div>
+<h4 class="font-body-lg text-body-lg text-on-surface font-semibold">Transportation</h4>
+<p class="font-label-sm text-label-sm text-on-surface-variant">12 Transactions</p>
+</div>
+</div>
+<div class="text-right">
+<p class="font-headline-md text-headline-md text-on-surface">-$320.50</p>
+<p class="font-label-sm text-label-sm text-primary flex items-center justify-end gap-xs">
+<span class="material-symbols-outlined text-[14px]">trending_down</span> 5%
+                            </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 rounded-t-xl bg-surface-container/70 backdrop-blur-2xl border-t border-white/10 shadow-[0_-8px_32px_rgba(0,0,0,0.4)]">
+<div class="flex justify-around items-center w-full pb-safe pt-2 px-2 pb-2">
+<a class="flex flex-col items-center justify-center text-on-surface-variant/60 hover:text-primary transition-all duration-300 active:scale-90 w-16 h-14" href="#">
+<span class="material-symbols-outlined mb-1">dashboard</span>
+<span class="font-label-sm text-label-sm text-[10px]">Dashboard</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container/30 text-secondary-fixed rounded-xl px-4 py-1 border border-primary/20 hover:text-primary transition-all duration-300 active:scale-90 min-w-16 h-14" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">query_stats</span>
+<span class="font-label-sm text-label-sm text-[10px]">Analytics</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/60 hover:text-primary transition-all duration-300 active:scale-90 w-16 h-14 relative -top-3" href="#">
+<div class="w-12 h-12 bg-gradient-to-br from-primary-container to-secondary-container rounded-full flex items-center justify-center shadow-lg shadow-primary/30 text-on-primary-container border border-white/20">
+<span class="material-symbols-outlined text-[28px]">add</span>
+</div>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/60 hover:text-primary transition-all duration-300 active:scale-90 w-16 h-14" href="#">
+<span class="material-symbols-outlined mb-1">account_balance_wallet</span>
+<span class="font-label-sm text-label-sm text-[10px]">Budget</span>
+</a>
+</div>
+</nav>
+<!-- SideNav (Desktop Only - Implicit based on requirement to use bottom nav on mobile and full nav cluster in top bar on web, but standard pattern includes a side nav if not all in top bar. Keeping simple as per JSON provided which only has Top and Bottom).
+    If a true desktop layout was fully fleshed out beyond the JSON, a side rail might exist here. -->
+</body></html>

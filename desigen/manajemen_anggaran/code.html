@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Finance Manager - Budget</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-tint": "#0053db",
+                        "surface-container-low": "#eff4ff",
+                        "on-primary-fixed": "#00174b",
+                        "on-secondary-fixed": "#002113",
+                        "on-tertiary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#930013",
+                        "on-secondary-fixed-variant": "#005236",
+                        "on-surface": "#0b1c30",
+                        "primary-fixed": "#dbe1ff",
+                        "on-tertiary-container": "#ffecea",
+                        "on-error": "#ffffff",
+                        "on-background": "#0b1c30",
+                        "on-surface-variant": "#434655",
+                        "on-error-container": "#93000a",
+                        "primary-container": "#2563eb",
+                        "secondary-fixed": "#6ffbbe",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-primary": "#b4c5ff",
+                        "background": "#f8f9ff",
+                        "inverse-on-surface": "#eaf1ff",
+                        "surface-variant": "#d3e4fe",
+                        "on-secondary-container": "#00714d",
+                        "primary": "#004ac6",
+                        "outline-variant": "#c3c6d7",
+                        "surface-container-highest": "#d3e4fe",
+                        "surface-container": "#e5eeff",
+                        "secondary-container": "#6cf8bb",
+                        "error": "#ba1a1a",
+                        "tertiary": "#ab0b1c",
+                        "on-primary-container": "#eeefff",
+                        "surface-container-high": "#dce9ff",
+                        "surface-dim": "#cbdbf5",
+                        "primary-fixed-dim": "#b4c5ff",
+                        "tertiary-container": "#cf2c30",
+                        "secondary-fixed-dim": "#4edea3",
+                        "outline": "#737686",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed": "#ffdad7",
+                        "surface-bright": "#f8f9ff",
+                        "on-secondary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "surface": "#f8f9ff",
+                        "on-primary-fixed-variant": "#003ea8",
+                        "inverse-surface": "#213145",
+                        "secondary": "#006c49",
+                        "tertiary-fixed-dim": "#ffb3ad",
+                        "on-tertiary-fixed": "#410004"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "base": "4px",
+                        "xs": "4px",
+                        "xl": "32px",
+                        "md": "16px",
+                        "lg": "24px",
+                        "margin-mobile": "20px",
+                        "gutter-mobile": "12px",
+                        "sm": "8px"
+                    },
+                    "fontFamily": {
+                        "label-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "headline-sm": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "body-md": ["Inter"],
+                        "body-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-md": ["12px", { "lineHeight": "16px", "fontWeight": "600" }],
+                        "headline-lg": ["30px", { "lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "label-sm": ["11px", { "lineHeight": "14px", "fontWeight": "500" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: theme('colors.background'); }
+        /* Hide scrollbar for clean horizontal scrolling if needed */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="text-on-background antialiased selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar -->
+<header class="docked full-width top-0 sticky backdrop-blur-xl bg-surface/90 shadow-sm z-40">
+<div class="flex justify-between items-center px-margin-mobile h-16 w-full max-w-[720px] mx-auto">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary font-headline-sm text-headline-sm overflow-hidden">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+</div>
+<h1 class="font-headline-md text-headline-md font-bold text-primary">Finance Manager</h1>
+</div>
+<!-- Desktop Nav Cluster (Hidden on Mobile, per requirements) -->
+<nav class="hidden md:flex items-center gap-md">
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Home</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Analytics</a>
+<a class="font-label-md text-label-md text-primary bg-primary-container/20 px-3 py-1.5 rounded-lg" href="#">Budget</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Settings</a>
+</nav>
+<button class="text-on-surface-variant hover:bg-surface-container-high transition-colors p-2 rounded-full active:scale-95 duration-200 transition-transform">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="pt-md pb-24 px-margin-mobile max-w-[720px] mx-auto flex flex-col gap-xl">
+<!-- Header & Summary Module -->
+<section class="flex flex-col gap-md">
+<div class="flex justify-between items-end">
+<div>
+<p class="font-body-md text-body-md text-on-surface-variant">November 2023</p>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Monthly Budget</h2>
+</div>
+</div>
+<!-- Remaining Budget Card -->
+<div class="bg-surface-container-lowest rounded-xl p-lg shadow-[0_4px_12px_rgba(0,0,0,0.04)] flex flex-col gap-lg border border-outline-variant/20">
+<div class="flex justify-between items-start">
+<div class="flex flex-col gap-xs">
+<span class="font-body-md text-body-md text-on-surface-variant">Remaining to spend</span>
+<span class="font-headline-lg text-headline-lg text-primary">$1,240.50</span>
+</div>
+<button class="px-4 py-2 bg-surface-variant text-primary rounded-lg font-label-md text-label-md hover:bg-surface-container-high active:scale-95 transition-all">
+                        Edit Limit
+                    </button>
+</div>
+<div class="flex flex-col gap-sm">
+<div class="flex justify-between font-label-sm text-label-sm text-on-surface-variant">
+<span>$2,759.50 spent</span>
+<span>$4,000.00 total</span>
+</div>
+<!-- Global Progress Bar -->
+<div class="w-full h-sm bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full w-[69%] transition-all duration-500"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Alerts Section -->
+<section class="bg-error-container rounded-xl p-md flex items-center gap-md shadow-sm border border-error/20">
+<div class="w-10 h-10 rounded-full bg-error/10 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-error" data-icon="warning">warning</span>
+</div>
+<div class="flex-1 flex flex-col">
+<span class="font-label-md text-label-md text-on-error-container">Action Required</span>
+<span class="font-body-sm text-body-sm text-on-error-container/80 mt-0.5">Groceries category has reached 90% of its monthly limit.</span>
+</div>
+</section>
+<!-- Categories Section -->
+<section class="flex flex-col gap-md">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Categories</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter-mobile">
+<!-- Category Card: Groceries (Alert) -->
+<div class="bg-surface-container-lowest rounded-xl p-md shadow-[0_4px_12px_rgba(0,0,0,0.04)] border border-outline-variant/20 flex flex-col gap-md hover:bg-surface-container-lowest/80 transition-colors cursor-pointer">
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface">Groceries</span>
+</div>
+<div class="text-right flex flex-col">
+<span class="font-label-md text-label-md text-error">$450.00</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">of $500.00</span>
+</div>
+</div>
+<!-- Progress Bar (Error State) -->
+<div class="w-full h-sm bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-error rounded-full w-[90%] transition-all duration-500"></div>
+</div>
+</div>
+<!-- Category Card: Housing (Normal) -->
+<div class="bg-surface-container-lowest rounded-xl p-md shadow-[0_4px_12px_rgba(0,0,0,0.04)] border border-outline-variant/20 flex flex-col gap-md hover:bg-surface-container-lowest/80 transition-colors cursor-pointer">
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface">Housing</span>
+</div>
+<div class="text-right flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">$1,500.00</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">of $1,500.00</span>
+</div>
+</div>
+<!-- Progress Bar -->
+<div class="w-full h-sm bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full w-[100%] transition-all duration-500"></div>
+</div>
+</div>
+<!-- Category Card: Transport (Normal) -->
+<div class="bg-surface-container-lowest rounded-xl p-md shadow-[0_4px_12px_rgba(0,0,0,0.04)] border border-outline-variant/20 flex flex-col gap-md hover:bg-surface-container-lowest/80 transition-colors cursor-pointer">
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="directions_car">directions_car</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface">Transport</span>
+</div>
+<div class="text-right flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">$120.00</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">of $400.00</span>
+</div>
+</div>
+<!-- Progress Bar -->
+<div class="w-full h-sm bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full w-[30%] transition-all duration-500"></div>
+</div>
+</div>
+<!-- Category Card: Utilities (Normal) -->
+<div class="bg-surface-container-lowest rounded-xl p-md shadow-[0_4px_12px_rgba(0,0,0,0.04)] border border-outline-variant/20 flex flex-col gap-md hover:bg-surface-container-lowest/80 transition-colors cursor-pointer">
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="bolt">bolt</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface">Utilities</span>
+</div>
+<div class="text-right flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">$180.50</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">of $300.00</span>
+</div>
+</div>
+<!-- Progress Bar -->
+<div class="w-full h-sm bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full w-[60%] transition-all duration-500"></div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (Hidden on desktop per logic) -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 backdrop-blur-xl bg-surface/90 shadow-[0_-4px_12px_rgba(0,0,0,0.04)]">
+<div class="flex justify-around items-center px-4 pb-4 pt-2 max-w-[720px] mx-auto">
+<!-- Home (Inactive) -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1.5 hover:text-primary active:scale-90 duration-150 transition-transform">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-md text-label-md mt-1">Home</span>
+</button>
+<!-- Analytics (Inactive) -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1.5 hover:text-primary active:scale-90 duration-150 transition-transform">
+<span class="material-symbols-outlined" data-icon="insights">insights</span>
+<span class="font-label-md text-label-md mt-1">Analytics</span>
+</button>
+<!-- Budget (Active) -->
+<button class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-xl px-4 py-1.5 active:scale-90 duration-150 transition-transform">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet" data-weight="fill" style="font-variation-settings: 'FILL' 1;">account_balance_wallet</span>
+<span class="font-label-md text-label-md mt-1">Budget</span>
+</button>
+<!-- Settings (Inactive) -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1.5 hover:text-primary active:scale-90 duration-150 transition-transform">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-md text-label-md mt-1">Settings</span>
+</button>
+</div>
+</nav>
+</body></html>

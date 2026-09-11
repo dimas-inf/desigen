@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Add Expense - NEO_SPEND</title>
+<!-- Google Fonts: Outfit -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Theme Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-container": "#004965",
+                    "on-secondary-fixed": "#002113",
+                    "on-tertiary-fixed-variant": "#92002a",
+                    "tertiary-fixed": "#ffdadb",
+                    "primary-fixed-dim": "#7bd0ff",
+                    "inverse-on-surface": "#2c3135",
+                    "secondary-container": "#00a572",
+                    "surface-dim": "#0f1418",
+                    "on-tertiary-fixed": "#40000d",
+                    "surface": "#0f1418",
+                    "surface-container": "#1b2024",
+                    "tertiary-container": "#ff929a",
+                    "error": "#ffb4ab",
+                    "secondary-fixed-dim": "#4edea3",
+                    "on-secondary-fixed-variant": "#005236",
+                    "secondary-fixed": "#6ffbbe",
+                    "on-surface-variant": "#bdc8d1",
+                    "on-error": "#690005",
+                    "background": "#0f1418",
+                    "surface-tint": "#7bd0ff",
+                    "on-primary-fixed-variant": "#004c69",
+                    "on-tertiary": "#67001b",
+                    "on-primary-fixed": "#001e2c",
+                    "on-tertiary-container": "#8c0028",
+                    "outline-variant": "#3e484f",
+                    "tertiary": "#ffbcbf",
+                    "primary-container": "#38bdf8",
+                    "on-background": "#dee3e8",
+                    "surface-container-high": "#252b2e",
+                    "error-container": "#93000a",
+                    "surface-container-highest": "#303539",
+                    "surface-container-lowest": "#0a0f12",
+                    "surface-variant": "#303539",
+                    "on-primary": "#00354a",
+                    "surface-container-low": "#171c20",
+                    "on-secondary-container": "#00311f",
+                    "secondary": "#4edea3",
+                    "outline": "#87929a",
+                    "surface-bright": "#343a3e",
+                    "on-error-container": "#ffdad6",
+                    "inverse-primary": "#00668a",
+                    "on-surface": "#dee3e8",
+                    "inverse-surface": "#dee3e8",
+                    "primary-fixed": "#c4e7ff",
+                    "on-secondary": "#003824",
+                    "tertiary-fixed-dim": "#ffb2b7",
+                    "primary": "#8ed5ff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "md": "1rem",
+                    "sm": "0.5rem",
+                    "gutter": "1rem",
+                    "xl": "2rem",
+                    "margin-desktop": "2.5rem",
+                    "margin-mobile": "1.25rem",
+                    "lg": "1.5rem",
+                    "2xl": "3rem",
+                    "xs": "0.25rem"
+            },
+            "fontFamily": {
+                    "label-sm": ["Outfit"],
+                    "headline-lg": ["Outfit"],
+                    "headline-xl": ["Outfit"],
+                    "body-lg": ["Outfit"],
+                    "body-md": ["Outfit"],
+                    "headline-md": ["Outfit"],
+                    "label-md": ["Outfit"],
+                    "headline-lg-mobile": ["Outfit"]
+            },
+            "fontSize": {
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        /* Custom Utility for No-Spinner Number Inputs */
+        input[type=number]::-webkit-inner-spin-button, 
+        input[type=number]::-webkit-outer-spin-button { 
+            -webkit-appearance: none; 
+            margin: 0; 
+        }
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-md text-body-md antialiased overflow-x-hidden">
+<!-- Header / Navigation (Task-Focused: Minimal Header) -->
+<header class="w-full flex justify-between items-center px-margin-mobile md:px-margin-desktop h-16 pt-4 sticky top-0 z-50 bg-background/80 backdrop-blur-xl border-b border-transparent">
+<button class="w-10 h-10 flex items-center justify-center rounded-full bg-surface-container/50 border border-white/5 hover:bg-white/5 transition-colors text-on-surface">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">arrow_back</span>
+</button>
+<h1 class="font-headline-md text-headline-md text-on-surface">Add Expense</h1>
+<div class="w-10"></div> <!-- Placeholder for centering -->
+</header>
+<!-- Main Canvas -->
+<main class="flex-1 flex flex-col px-margin-mobile md:px-margin-desktop py-lg max-w-2xl mx-auto w-full gap-xl">
+<!-- Large Amount Display -->
+<section class="flex flex-col items-center justify-center py-xl">
+<div class="text-on-surface-variant font-label-md text-label-md mb-2 uppercase tracking-widest">Amount</div>
+<div class="relative flex items-center justify-center w-full">
+<span class="absolute left-[20%] md:left-[30%] text-error font-headline-lg text-headline-lg opacity-80">$</span>
+<input autofocus="" class="w-full bg-transparent text-center font-headline-xl text-headline-xl text-error border-none focus:ring-0 p-0 m-0 placeholder-surface-variant" placeholder="0.00" type="number" value="124.50"/>
+</div>
+<div class="h-[1px] w-48 bg-gradient-to-r from-transparent via-error/30 to-transparent mt-4"></div>
+</section>
+<!-- Category Grid (Bento Style) -->
+<section class="flex flex-col gap-md">
+<h2 class="font-label-sm text-label-sm text-outline uppercase">Category</h2>
+<div class="grid grid-cols-4 gap-sm md:gap-md">
+<!-- Category Item 1 (Selected/Glowing) -->
+<button class="flex flex-col items-center justify-center gap-2 p-3 rounded-xl bg-primary/10 border border-primary shadow-[0_0_16px_rgba(142,213,255,0.25)] transition-all transform scale-105">
+<span class="material-symbols-outlined text-primary text-[28px]" style="font-variation-settings: 'FILL' 1;">restaurant</span>
+<span class="font-label-sm text-label-sm text-primary">Food</span>
+</button>
+<!-- Category Item 2 -->
+<button class="flex flex-col items-center justify-center gap-2 p-3 rounded-xl bg-surface-container/60 border border-white/5 backdrop-blur-lg hover:bg-white/5 transition-all text-on-surface-variant">
+<span class="material-symbols-outlined text-[28px]" style="font-variation-settings: 'FILL' 0;">directions_car</span>
+<span class="font-label-sm text-label-sm">Transit</span>
+</button>
+<!-- Category Item 3 -->
+<button class="flex flex-col items-center justify-center gap-2 p-3 rounded-xl bg-surface-container/60 border border-white/5 backdrop-blur-lg hover:bg-white/5 transition-all text-on-surface-variant">
+<span class="material-symbols-outlined text-[28px]" style="font-variation-settings: 'FILL' 0;">shopping_bag</span>
+<span class="font-label-sm text-label-sm">Shop</span>
+</button>
+<!-- Category Item 4 -->
+<button class="flex flex-col items-center justify-center gap-2 p-3 rounded-xl bg-surface-container/60 border border-white/5 backdrop-blur-lg hover:bg-white/5 transition-all text-on-surface-variant">
+<span class="material-symbols-outlined text-[28px]" style="font-variation-settings: 'FILL' 0;">receipt_long</span>
+<span class="font-label-sm text-label-sm">Bills</span>
+</button>
+<!-- Category Item 5 -->
+<button class="flex flex-col items-center justify-center gap-2 p-3 rounded-xl bg-surface-container/60 border border-white/5 backdrop-blur-lg hover:bg-white/5 transition-all text-on-surface-variant">
+<span class="material-symbols-outlined text-[28px]" style="font-variation-settings: 'FILL' 0;">flight_takeoff</span>
+<span class="font-label-sm text-label-sm">Travel</span>
+</button>
+<!-- Category Item 6 -->
+<button class="flex flex-col items-center justify-center gap-2 p-3 rounded-xl bg-surface-container/60 border border-white/5 backdrop-blur-lg hover:bg-white/5 transition-all text-on-surface-variant">
+<span class="material-symbols-outlined text-[28px]" style="font-variation-settings: 'FILL' 0;">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</button>
+<!-- Category Item 7 -->
+<button class="flex flex-col items-center justify-center gap-2 p-3 rounded-xl bg-surface-container/60 border border-white/5 backdrop-blur-lg hover:bg-white/5 transition-all text-on-surface-variant">
+<span class="material-symbols-outlined text-[28px]" style="font-variation-settings: 'FILL' 0;">health_and_safety</span>
+<span class="font-label-sm text-label-sm">Health</span>
+</button>
+<!-- Category Item 8 (More) -->
+<button class="flex flex-col items-center justify-center gap-2 p-3 rounded-xl bg-surface-container/60 border border-white/5 backdrop-blur-lg hover:bg-white/5 transition-all text-on-surface-variant">
+<span class="material-symbols-outlined text-[28px]" style="font-variation-settings: 'FILL' 0;">more_horiz</span>
+<span class="font-label-sm text-label-sm">More</span>
+</button>
+</div>
+</section>
+<!-- Glassmorphism Details Form -->
+<section class="flex flex-col gap-4 mt-4">
+<!-- Date Input -->
+<div class="relative group">
+<div class="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none text-outline group-focus-within:text-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 0;">calendar_today</span>
+</div>
+<input class="w-full bg-surface-container/40 border border-white/10 rounded-xl py-3.5 pl-12 pr-4 font-body-md text-body-md text-on-surface backdrop-blur-xl focus:border-primary focus:ring-1 focus:ring-primary/50 focus:bg-surface-container/60 transition-all outline-none" type="date" value="2023-10-24"/>
+</div>
+<!-- Note Input -->
+<div class="relative group">
+<div class="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none text-outline group-focus-within:text-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 0;">edit_note</span>
+</div>
+<input class="w-full bg-surface-container/40 border border-white/10 rounded-xl py-3.5 pl-12 pr-4 font-body-md text-body-md text-on-surface backdrop-blur-xl focus:border-primary focus:ring-1 focus:ring-primary/50 focus:bg-surface-container/60 transition-all outline-none placeholder:text-outline-variant" placeholder="Add a note (optional)" type="text" value="Dinner with client"/>
+</div>
+</section>
+</main>
+<!-- Bottom Action Button (Sticky) -->
+<div class="w-full px-margin-mobile md:px-margin-desktop py-lg mt-auto sticky bottom-0 bg-gradient-to-t from-background via-background to-transparent z-40">
+<button class="w-full py-4 rounded-xl bg-primary text-on-primary font-headline-md text-headline-md shadow-[0_0_24px_rgba(142,213,255,0.3)] hover:scale-[0.98] hover:shadow-[0_0_32px_rgba(142,213,255,0.5)] transition-all active:scale-95 flex items-center justify-center gap-2">
+<span>Simpan Transaksi</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</button>
+</div>
+</body></html>
