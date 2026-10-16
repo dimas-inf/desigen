@@ -1,0 +1,28 @@
+a {
+    display: inline-block;
+    margin: 20px;
+    text-decoration: none;
+}
+
+img {
+    border: 3px solid rgb(43, 96, 212);;
+    border-radius: 10px;
+    max-width: 100%;
+}
+
+strong {
+    color: rgb(43, 96, 212);;
+    font-weight: bold;
+}
+
+a:hover {
+    opacity: 0.8;
+    transform: scale(1.03);
+    transition: all 0.2s ease;
+}
+
+img:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    border-color: #234f80;
+    transition: all 0.2s ease;
+}
