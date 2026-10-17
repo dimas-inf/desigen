@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="id" lang="id">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Pendaftaran Kompetisi Teknologi</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+    <div class="kepala">
+        <h1>Pendaftaran Kompetisi Teknologi</h1>
+        <p>Tunjukkan kemampuan terbaikmu! Lengkapi seluruh data di bawah ini untuk mengikuti kompetisi.</p>
+    </div>
+
+    <form action="" method="post" enctype="multipart/form-data">
+        <table cellspacing="4" cellpadding="4" border="1">
+            <tr>
+                <td colspan="2" class="judul-bagian">
+                    <strong>Identitas Tim</strong>
+                </td>
+            </tr>
+            <tr>
+                <td class="kolom-label">
+                    <label for="namaTim">Nama Grup</label>
+                </td>
+                <td>
+                    <input type="text" id="namaTim" name="namaTim" />
+                </td>
+            </tr>
+            <tr>
+                <td class="kolom-label">
+                    <label for="namaKetua">Nama Pemimpin Tim</label>
+                </td>
+                <td>
+                    <input type="text" id="namaKetua" name="namaKetua" />
+                </td>
+            </tr>
+            <tr>
+                <td class="kolom-label">
+                    <label for="jumlahAnggota">Banyak Anggota</label>
+                </td>
+                <td>
+                    <input type="text" id="jumlahAnggota" name="jumlahAnggota" />
+                </td>
+            </tr>
+            <tr>
+                <td class="kolom-label">
+                    <label for="prodi">Jurusan</label>
+                </td>
+                <td>
+                    <select id="prodi" name="prodi">
+                        <option>Informatika</option>
+                        <option>Sistem Informasi</option>
+                        <option>Teknik Industri</option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+
+        <table cellspacing="4" cellpadding="4" border="1">
+            <tr>
+                <td colspan="2" class="judul-bagian">
+                    <strong>Detail Kompetisi</strong>
+                </td>
+            </tr>
+            <tr>
+                <td class="kolom-label">
+                    Jenis Peserta
+                </td>
+                <td>
+                    <input type="radio" id="individu" name="kategori"
+                           value="Individu" />
+                    <label for="individu">Individu</label>
+
+                    <input type="radio" id="kelompok" name="kategori"
+                           value="Kelompok" />
+                    <label for="kelompok">Kelompok</label>
+                </td>
+            </tr>
+            <tr>
+                <td class="kolom-label atas">
+                    Cabang yang Diikuti
+                </td>
+                <td>
+                    <p>
+                        <input type="checkbox" id="programming" name="bidang"
+                               value="Programming" />
+                        <label for="programming">Programming</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" id="uiux" name="bidang"
+                               value="UI/UX Design" />
+                        <label for="uiux">UI/UX Design</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" id="karyaTulis" name="bidang"
+                               value="Karya Tulis" />
+                        <label for="karyaTulis">Karya Tulis</label>
+                    </p>
+                </td>
+            </tr>
+        </table>
+
+        <table cellspacing="4" cellpadding="4" border="1">
+            <tr>
+                <td colspan="2" class="judul-bagian">
+                    <strong>Detail Karya</strong>
+                </td>
+            </tr>
+            <tr>
+                <td class="kolom-label atas">
+                    <label for="deskripsi">Ringkasan Karya</label>
+                </td>
+                <td>
+                    <textarea id="deskripsi" name="deskripsi"
+                              rows="5" cols="40"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td class="kolom-label">
+                    <label for="fileKarya">Unggah Karya</label>
+                </td>
+                <td>
+                    <input type="file" id="fileKarya" name="fileKarya" />
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" class="tengah">
+                    <input type="submit" name="daftar" value="Kirim Pendaftaran" />
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
